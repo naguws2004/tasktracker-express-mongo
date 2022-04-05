@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const config = require('./config.json')
 const taskRouter = require('./routes/taskRoutes')
 const app = express()
@@ -12,6 +13,7 @@ con.on("open", () => {
 })
 
 app.use(express.json())
+app.use(cors())
 app.use('/api/tasks', taskRouter)
 
 const PORT = process.env.PORT || 200
