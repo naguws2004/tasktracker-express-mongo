@@ -4,17 +4,18 @@
 
 #### This repo contains Node, Express and Mongo code part of the simple Task Tracker project developed using React, Redux, Node, Express, Mongo and ASP.Net Core Web API
 
-### Partially working App is available at: https://nag-tasks-tracker.netlify.app/
+### Working App is available at: https://nag-tasks-tracker.netlify.app/
 
-##### Mongo Cloud DB Link: https://cloud.mongodb.com/v2/624282672a1584029925b671#clusters
-##### Note: Need to update the local IP address on the mongo cloud network access tab before running the App. Otherwise, mongo db will not be accessable from local machine
+##### Mongo Cloud DB hosted at: https://cloud.mongodb.com/v2/624282672a1584029925b671#clusters
+##### APIs hosted at: https://dashboard.heroku.com/apps/nag-task-tracker
+##### App hosted at: https://app.netlify.com/sites/nag-tasks-tracker/overview
 
 ## Sample ScreenShots
 ### Initial Screen
-![image](https://user-images.githubusercontent.com/101856709/160776632-225033dd-29af-47dc-9a94-011671002c3f.png)
+![image](https://user-images.githubusercontent.com/101856709/161534131-b14e2075-f4d2-4a70-9fea-decb6a13ac49.png)
 
 ### With Add Task Form
-![image](https://user-images.githubusercontent.com/101856709/160776850-7af23303-8377-4281-9b4c-0f6f02b7baa7.png)
+![image](https://user-images.githubusercontent.com/101856709/161534219-e8197f35-8a78-409b-aac2-df2fd2a14b87.png)
 
 ### With Reminders toggled and one Task removed
-![image](https://user-images.githubusercontent.com/101856709/160777059-ccd2b093-de3e-45ec-8bdf-75076e8c095f.png)
+![image](https://user-images.githubusercontent.com/101856709/161534327-4e2205d3-8d1c-4eed-8782-f2089a0b40ff.png)
