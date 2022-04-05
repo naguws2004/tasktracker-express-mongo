@@ -15,8 +15,11 @@ taskRouter.get('/', async(req, res) => {
 taskRouter.post('/', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     taskModel.findOne().sort('-TaskId').exec(async(err, item) => {
+
+        const newTaskId = item === null ? 1 : item.TaskId + 1
+
         const newTask = new taskModel({
-            TaskId: item.TaskId + 1,
+            TaskId: newTaskId,
             TaskName: req.body.TaskName,
             TaskDateTime: req.body.TaskDateTime,
             Remind: req.body.Remind
