@@ -8,6 +8,8 @@
 
 ##### Mongo Cloud DB hosted at: https://cloud.mongodb.com/v2/624282672a1584029925b671#clusters
 ##### APIs hosted at: https://dashboard.heroku.com/apps/nag-task-tracker
+##### Auth0 hosted at: https://manage.auth0.com/dashboard/us/dev-4ts2gaz2/
+##### Email Server hosted at: https://app.sendgrid.com/
 ##### App hosted at: https://app.netlify.com/sites/nag-tasks-tracker/overview
 
 ## Sample ScreenShots
