@@ -1,6 +1,7 @@
 const express = require('express')
 const taskRouter = express.Router()
 const taskModel = require('../models/taskModel')
+const emailService = require('../service/emailService')
 
 taskRouter.get('/', async(req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
@@ -8,6 +9,17 @@ taskRouter.get('/', async(req, res) => {
         const tasks = await taskModel.find()
         res.json(tasks)
     } catch(err) {
+        res.json('Error ' + err)
+    }
+})
+
+taskRouter.get('/:emailId', async(req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    try {
+        const tasks = await taskModel.find({ EmailId: req.params.emailId })
+        res.json(tasks)
+    } catch(err) {
+        console.log(err)
         res.json('Error ' + err)
     }
 })
@@ -20,6 +32,7 @@ taskRouter.post('/', (req, res) => {
 
         const newTask = new taskModel({
             TaskId: newTaskId,
+            EmailId: req.body.EmailId,
             TaskName: req.body.TaskName,
             TaskDateTime: req.body.TaskDateTime,
             Remind: req.body.Remind
@@ -27,8 +40,17 @@ taskRouter.post('/', (req, res) => {
 
         try {
             const savedTask = await newTask.save()
+
+            const emailId = savedTask.EmailId
+            const subject = "New Task added to your Task Tracker"
+            const text = "<strong>Task Name: '" + savedTask.TaskName + "'</strong>"
+            console.log('Sending email...')
+            emailService(emailId, subject, text)
+            console.log('Email sent')
+
             res.json(savedTask)
         } catch (err) {
+            console.log(err)
             res.json('Error ' + err)
         }
     })
@@ -42,6 +64,7 @@ taskRouter.put('/:Id', async(req, res) => {
         const savedTask = await modifiedTask.save()
         res.json(savedTask)
     } catch (err) {
+        console.log(err)
         res.json('Error ' + err)
     }
 })
@@ -52,6 +75,7 @@ taskRouter.delete('/:Id', async(req, res) => {
         const deletedTask = await taskModel.findOneAndDelete({ TaskId: req.params.Id })
         res.json(deletedTask)
     } catch (err) {
+        console.log(err)
         res.json('Error ' + err)
     }
 })

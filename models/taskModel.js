@@ -5,6 +5,10 @@ const taskSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    EmailId: {
+        type: String,
+        required: true
+    },
     TaskName: {
         type: String,
         required: true
