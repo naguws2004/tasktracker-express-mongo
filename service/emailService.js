@@ -1,8 +1,13 @@
 const sgMail = require("@sendgrid/mail")
-const sgKey = ""
+const AESCrypt = require('./crypto')
+require('dotenv').config();
+
+const key = process.env.SENDGRID_API_KEY
+const sgKey = AESCrypt.decrypt(key)
 
 const emailService = (emailId, subject, text) => {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY || sgKey)
+    console.log(sgKey)
+    sgMail.setApiKey(sgKey)
     const emailMessage = {
         to: emailId,
         from: "nageshkumar.y@gmail.com",

@@ -3,8 +3,6 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const config = require('./config.json')
 const taskRouter = require('./routes/taskRoutes')
-const cronScheduler = require('./service/cronService')
-require('dotenv').config();
 const app = express()
 
 mongoose.connect(config.connString, {useNewUrlParser:true})
