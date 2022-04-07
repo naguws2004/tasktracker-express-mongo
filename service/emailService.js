@@ -6,7 +6,6 @@ const key = process.env.SENDGRID_API_KEY
 const sgKey = AESCrypt.decrypt(key)
 
 const emailService = (emailId, subject, text) => {
-    console.log(sgKey)
     sgMail.setApiKey(sgKey)
     const emailMessage = {
         to: emailId,
