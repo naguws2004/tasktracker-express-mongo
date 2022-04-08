@@ -2,7 +2,7 @@ var crypto = require('crypto');
 
 const AESCrypt = {};
 const cryptkey = crypto.createHash('sha256').update('Nixnogen').digest()
-iv = 'a2xhcgAAAAAAAAAA'
+const iv = 'a2xhcgAAAAAAAAAA'
 
 AESCrypt.encrypt = (encryptData) => {
     var encipher = crypto.createCipheriv('aes-256-cbc', cryptkey, iv)

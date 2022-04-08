@@ -1,17 +1,9 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const cors = require('cors')
-const config = require('./config.json')
+const db = require('./service/dbService')
 const cron = require('./service/cronService')
 const taskRouter = require('./routes/taskRoutes')
 const app = express()
-
-mongoose.connect(config.connString, {useNewUrlParser:true})
-const con = mongoose.connection
-
-con.on("open", () => {
-    console.log("connected...")
-})
 
 app.use(express.json())
 app.use(cors())
